@@ -1,12 +1,29 @@
-import express from "express";
+import Fastify from "fastify";
 
-const app = express()
-const PORT = 3000;
+/**
+ * @type {import("fastify").FastifyInstance}
+ */
 
-app.get("/", (req, res) => {
-    res.send("Hello World!")
+const fastify = Fastify({
+    logger: true
 })
 
-app.listen(PORT, () => {
-    console.log(`Server is listening on port: ${PORT}.`)
+fastify.get("/", function (request, reply) {
+    reply.send({hello: "world"})
+})
+
+fastify.get("/properties", function (request, reply) {
+    reply.send({hello: "properties"})
+})
+
+fastify.get("/manager", function (request, reply) {
+    reply.send({hello: "manager"})
+})
+
+
+fastify.listen({ port: 3000 }, function (err, address) {
+    if (err) {
+        fastify.log.error(err)
+        process.exit(1)
+    }
 })
