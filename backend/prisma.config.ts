@@ -1,8 +1,9 @@
-import "dotenv/config"
+import { defineConfig, env } from "prisma/config";
+import "dotenv/config";
 
-export default {
+export default defineConfig({
   schema: "prisma/schema.prisma",
   datasource: {
-    url: "mysql://root:securepassword@localhost:3306/property_db",
+    url: env("DATABASE_URL"),
   },
-}
+});
