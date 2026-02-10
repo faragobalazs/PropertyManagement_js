@@ -31,6 +31,36 @@ async function main() {
       phone: "+36000000000",
     },
   });
+
+  const rossmann = await prisma.tenants.create({
+    data: {
+      name: "rossmann",
+      building: "westend",
+      level: "0",
+      number: "5",
+      sqm: "2000",
+    },
+  });
+
+  const dm = await prisma.tenants.create({
+    data: {
+      name: "dm",
+      building: "westend",
+      level: "1",
+      number: "12",
+      sqm: "1500",
+    },
+  });
+
+  const cafe = await prisma.tenants.create({
+    data: {
+      name: "cafe",
+      building: "mol",
+      level: "0",
+      number: "1",
+      sqm: "120",
+    },
+  });
 }
 
 main();
