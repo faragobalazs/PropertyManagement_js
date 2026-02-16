@@ -24,7 +24,7 @@ model Building {
 }
 
 model Tenants {
-  id            Int @id @default(autoincrement)
+  id            Int @id @default(autoincrement())
   name          String
   building      String
   level         Int
@@ -33,25 +33,28 @@ model Tenants {
 }
 
 model Electricity {
+  id            Int @id @default(autoincrement())
   name          String
   date          DateTime
   meter         Float
 }
 
 model Heating {
+  id            Int @id @default(autoincrement())
   name          String
   date          DateTime
   meter         Float
 }
 
 model Water {
+  id            Int @id @default(autoincrement())
   name          String
   date          DateTime
   meter         Float
 }
 
 model Parking {
-  id            Int @id @default(autoincrement)
+  id            Int @id @default(autoincrement())
   building      String
   number        Int
   occupied      Boolean

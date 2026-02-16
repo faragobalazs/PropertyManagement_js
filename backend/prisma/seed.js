@@ -36,9 +36,9 @@ async function main() {
     data: {
       name: "rossmann",
       building: "westend",
-      level: "0",
-      number: "5",
-      sqm: "2000",
+      level: 0,
+      number: 5,
+      sqm: 2000,
     },
   });
 
@@ -46,9 +46,9 @@ async function main() {
     data: {
       name: "dm",
       building: "westend",
-      level: "1",
-      number: "12",
-      sqm: "1500",
+      level: 1,
+      number: 12,
+      sqm: 1500,
     },
   });
 
@@ -56,9 +56,9 @@ async function main() {
     data: {
       name: "cafe",
       building: "mol",
-      level: "0",
-      number: "1",
-      sqm: "120",
+      level: 0,
+      number: 1,
+      sqm: 120,
     },
   });
 }
