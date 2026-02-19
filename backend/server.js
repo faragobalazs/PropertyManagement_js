@@ -169,6 +169,7 @@ fastify.register(async function (instance) {
           required: ["name", "date", "meter"],
           properties: {
             name: { type: "string" },
+            building: { type: "string" },
             date: { type: "string" },
             meter: { type: "number" },
           },
@@ -195,6 +196,7 @@ fastify.register(async function (instance) {
               type: "object",
               properties: {
                 name: { type: "string" },
+                building: { type: "string" },
                 date: { type: "string" },
                 meter: { type: "number" },
               },
@@ -222,6 +224,7 @@ fastify.register(async function (instance) {
           required: ["name", "date", "meter"],
           properties: {
             name: { type: "string" },
+            building: { type: "string" },
             date: { type: "string" },
             meter: { type: "number" },
           },
@@ -248,6 +251,7 @@ fastify.register(async function (instance) {
               type: "object",
               properties: {
                 name: { type: "string" },
+                building: { type: "string" },
                 date: { type: "string" },
                 meter: { type: "number" },
               },
@@ -282,6 +286,7 @@ fastify.register(async function (instance) {
           required: ["name", "date", "meter"],
           properties: {
             name: { type: "string" },
+            building: { type: "string" },
             date: { type: "string" },
             meter: { type: "number" },
           },
@@ -308,6 +313,7 @@ fastify.register(async function (instance) {
               type: "object",
               properties: {
                 name: { type: "string" },
+                building: { type: "string" },
                 date: { type: "string" },
                 meter: { type: "number" },
               },

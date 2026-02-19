@@ -35,6 +35,7 @@ model Tenants {
 model Electricity {
   id            Int @id @default(autoincrement())
   name          String
+  building      String
   date          DateTime
   meter         Float
 }
@@ -42,6 +43,7 @@ model Electricity {
 model Heating {
   id            Int @id @default(autoincrement())
   name          String
+  building      String
   date          DateTime
   meter         Float
 }
@@ -49,6 +51,7 @@ model Heating {
 model Water {
   id            Int @id @default(autoincrement())
   name          String
+  building      String
   date          DateTime
   meter         Float
 }

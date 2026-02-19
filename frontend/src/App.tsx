@@ -16,8 +16,18 @@ type Building = {
   updatedAt: string;
 };
 
+type Tenants = {
+  id: number;
+  name: string;
+  building: string;
+  level: number;
+  number: number;
+  sqm: number;
+};
+
 function App() {
   const [buildings, setBuildings] = useState<Building[]>([]);
+  const [tenants, setTenants] = useState<Tenants[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/buildings")
@@ -29,9 +39,19 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    fetch("http://localhost:3000/tenants")
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setTenants(data);
+      });
+  });
+
   return (
     <div>
-      <h1>Buildings</h1>
+      <h2>Buildings</h2>
       <ul>
         {buildings.map((property) => (
           <li key={property.id}>
@@ -44,6 +64,18 @@ function App() {
             <p>Webpage: {property.webpage}</p>
             <p>Email: {property.email}</p>
             <p>Phone: {property.phone}</p>
+          </li>
+        ))}
+      </ul>
+      <h2>Tenants</h2>
+      <ul>
+        {tenants.map((renter) => (
+          <li key={renter.id}>
+            <p>{renter.name}</p>
+            <p>Building: {renter.building}</p>
+            <p>Level: {renter.level}</p>
+            <p>Number: {renter.number}</p>
+            <p>Sqm: {renter.sqm}</p>
           </li>
         ))}
       </ul>
