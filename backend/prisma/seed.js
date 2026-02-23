@@ -35,7 +35,7 @@ async function main() {
   const rossmann = await prisma.tenants.create({
     data: {
       name: "rossmann",
-      building: "westend",
+      buildingId: westend.id,
       level: 0,
       number: 5,
       sqm: 2000,
@@ -45,7 +45,7 @@ async function main() {
   const dm = await prisma.tenants.create({
     data: {
       name: "dm",
-      building: "westend",
+      buildingId: westend.id,
       level: 1,
       number: 12,
       sqm: 1500,
@@ -55,7 +55,7 @@ async function main() {
   const cafe = await prisma.tenants.create({
     data: {
       name: "cafe",
-      building: "mol",
+      buildingId: mol.id,
       level: 0,
       number: 1,
       sqm: 120,

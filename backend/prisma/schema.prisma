@@ -9,7 +9,7 @@ datasource db {
 
 model Building {
   id            Int @id @default(autoincrement())
-  name          String
+  name          String @unique
   address       String
   architect     String
   owner         String
@@ -18,48 +18,64 @@ model Building {
   webpage       String
   email         String
   phone         String
-
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
+  tenants       Tenants[]
+  electricity   Electricity[]
+  heating       Heating[]
+  water         Water[]
+  parking       Parking[]
 }
 
 model Tenants {
   id            Int @id @default(autoincrement())
   name          String
-  building      String
+  building      Building @relation(fields: [buildingId], references: [id])
+  buildingId    Int
   level         Int
   number        Int
   sqm           Float
+  el_meters     Electricity[]
+  heat_meters   Heating[]
+  water_meters  Water[]
+  parkingSpots  Parking[]
 }
 
 model Electricity {
   id            Int @id @default(autoincrement())
-  name          String
-  building      String
   date          DateTime
-  meter         Float
+  meter         Float @unique
+  building      Building @relation(fields: [buildingId], references: [id])
+  buildingId    Int
+  tenant        Tenants? @relation(fields: [tenantId], references: [id])
+  tenantId      Int?
 }
 
 model Heating {
   id            Int @id @default(autoincrement())
-  name          String
-  building      String
   date          DateTime
-  meter         Float
+  meter         Float @unique
+  building      Building @relation(fields: [buildingId], references: [id])
+  buildingId    Int
+  tenant        Tenants? @relation(fields: [tenantId], references: [id])
+  tenantId      Int?
 }
 
 model Water {
   id            Int @id @default(autoincrement())
-  name          String
-  building      String
   date          DateTime
-  meter         Float
+  meter         Float @unique
+  building      Building @relation(fields: [buildingId], references: [id])
+  buildingId    Int
+  tenant        Tenants? @relation(fields: [tenantId], references: [id])
+  tenantId      Int?
 }
 
 model Parking {
   id            Int @id @default(autoincrement())
-  building      String
   number        Int
-  occupied      Boolean
-  Tenants       String
+  building      Building @relation(fields: [buildingId], references: [id])
+  buildingId    Int
+  tenant        Tenants? @relation(fields: [tenantId], references: [id])
+  tenantId      Int?
 }
